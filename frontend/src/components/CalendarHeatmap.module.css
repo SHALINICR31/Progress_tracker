@@ -1,0 +1,37 @@
+.wrap {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 12px 14px;
+}
+.topRow { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
+.label  { font-size:12px; font-weight:700; color:var(--ink2); }
+.meta   { font-size:11px; color:var(--muted); }
+
+.monthRow {
+  display: grid; gap: 2px;
+  margin-bottom: 2px; padding-left: 20px; min-height: 13px;
+}
+.monthLabel { font-size:9px; color:var(--muted); white-space:nowrap; }
+
+.gridOuter { display:flex; gap:4px; align-items:flex-start; }
+.dayLabels  { display:flex; flex-direction:column; gap:2px; padding-top:1px; }
+.dayLbl     { font-size:9px; color:var(--muted); height:11px; width:14px; text-align:right; line-height:11px; }
+
+.grid { display:flex; gap:2px; }
+.col  { display:flex; flex-direction:column; gap:2px; }
+
+.cell {
+  width:11px; height:11px; border-radius:2px;
+  transition:transform .1s;
+}
+.cell:hover { transform:scale(1.5); z-index:2; position:relative; }
+
+.blank   { background:transparent; }
+.none    { background:var(--border2); }
+.partial { background:var(--amber); opacity:.6; }
+.done    { background:var(--green); }
+
+.legend {
+  display:flex; align-items:center; gap:4px;
+  margin-top:8px; justify-content:flex-end;
+}
+.legLbl { font-size:10px; color:var(--muted); }
