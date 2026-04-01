@@ -8,8 +8,10 @@ from routes.journal import journal_bp
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'taskflow-secret-2024')
 
-CORS(app, origins="*", supports_credentials=False)
-
+CORS(app, origins=[
+    "http://localhost:3000",
+    os.environ.get('FRONTEND_URL', '')
+], supports_credentials=True)
 
 app.register_blueprint(auth_bp,    url_prefix='/api/auth')
 app.register_blueprint(tasks_bp,   url_prefix='/api/tasks')
