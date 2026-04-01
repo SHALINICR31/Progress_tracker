@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 import jwt, datetime
 
-auth_bp = Blueprint('auth', __name__)
+auth_bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 # 🔐 Secret key (for demo)
 SECRET = 'taskflow-secret-2024'
