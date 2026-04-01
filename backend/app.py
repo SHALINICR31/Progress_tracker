@@ -10,7 +10,7 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'taskflow-secret-2024')
 
 CORS(app, origins=[
     "http://localhost:3000",
-    os.environ.get('FRONTEND_URL', '')
+    os.environ.get('REACT_APP_API_URL', '')
 ], supports_credentials=True)
 
 app.register_blueprint(auth_bp,    url_prefix='/api/auth')
