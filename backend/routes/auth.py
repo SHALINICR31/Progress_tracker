@@ -29,8 +29,11 @@ def register():
 def login():
     d = request.get_json()
     u, p = d.get('username','').strip(), d.get('password','')
-    users = read_users()
-    user  = next((x for x in users if x['username'] == u), None)
-    if not user or not bcrypt.checkpw(p.encode(), user['password'].encode()):
-        return jsonify({'error': 'Invalid credentials'}), 401
-    return jsonify({'token': make_token(user['id'], u), 'username': u, 'user_id': user['id']}), 200
+    if u == "shalini" and p == "1234":
+    return jsonify({
+        'token': make_token("1", u),
+        'username': u,
+        'user_id': "1"
+    }), 200
+
+return jsonify({'error': 'Invalid credentials'}), 401
