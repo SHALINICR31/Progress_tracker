@@ -6,10 +6,9 @@ from routes.tasks import tasks_bp
 from routes.journal import journal_bp
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'taskflow-secret-2024')
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'taskflow_super_secure_key_987654')
 
-# Allow all origins — safe for this app, fixes CORS on Render
-CORS(app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=False)
+CORS(app)
 
 app.register_blueprint(auth_bp,    url_prefix='/api/auth')
 app.register_blueprint(tasks_bp,   url_prefix='/api/tasks')
