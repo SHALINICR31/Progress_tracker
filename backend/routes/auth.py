@@ -19,7 +19,7 @@ def login():
     d = request.get_json()
     if not d:
         return jsonify({'error': 'No data provided'}), 400
-    
+
     u = d.get('username', '').strip()
     p = d.get('password', '')
 
