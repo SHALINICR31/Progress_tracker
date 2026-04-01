@@ -29,7 +29,7 @@ def register():
 def login():
     d = request.get_json()
     u, p = d.get('username','').strip(), d.get('password','')
-    if u == "shalini" and p == "1234":
+    if u == "shalini" and p == "123456":
     return jsonify({
         'token': make_token("1", u),
         'username': u,
