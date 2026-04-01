@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 import jwt, datetime
 
 auth_bp = Blueprint('auth', __name__)
-SECRET  = 'taskflow-secret-2024'
+SECRET  = 'taskflow_super_secure_key_987654'
 
 def make_token(uid, uname):
     return jwt.encode(
@@ -19,15 +19,12 @@ def login():
     d = request.get_json()
     if not d:
         return jsonify({'error': 'No data provided'}), 400
-
     u = d.get('username', '').strip()
     p = d.get('password', '')
-
     if u == "shalini" and p == "123456":
         return jsonify({
             'token': make_token("1", u),
             'username': u,
             'user_id': "1"
         }), 200
-
     return jsonify({'error': 'Invalid credentials'}), 401
