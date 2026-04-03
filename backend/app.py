@@ -1,4 +1,11 @@
 import os
+
+# Fix for Render/Neon URL compatibility
+db_url = os.environ.get('DATABASE_URL', '')
+if db_url.startswith('postgres://'):
+    db_url = db_url.replace('postgres://', 'postgresql://', 1)
+    os.environ['DATABASE_URL'] = db_url
+
 from flask import Flask
 from flask_cors import CORS
 from routes.auth import auth_bp
@@ -10,7 +17,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'taskflow_super_secure_key_987654')
 CORS(app)
 
-init_db()  # ✅ moved here, after app config
+init_db()
 
 app.register_blueprint(auth_bp,    url_prefix='/api/auth')
 app.register_blueprint(tasks_bp,   url_prefix='/api/tasks')
