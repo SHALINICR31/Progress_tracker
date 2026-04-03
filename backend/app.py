@@ -4,8 +4,10 @@ from flask_cors import CORS
 from routes.auth import auth_bp
 from routes.tasks import tasks_bp
 from routes.journal import journal_bp
+from storage import init_db   
 
 app = Flask(__name__)
+init_db()
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'taskflow_super_secure_key_987654')
 
 CORS(app)
