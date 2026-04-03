@@ -2,7 +2,7 @@ import jwt
 from flask import request, jsonify
 from functools import wraps
 
-SECRET = 'taskflow-secret-2024'
+SECRET = 'taskflow_super_secure_key_987654'
 
 def token_required(f):
     @wraps(f)
