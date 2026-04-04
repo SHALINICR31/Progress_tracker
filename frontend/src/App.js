@@ -6,7 +6,7 @@ import Register     from './pages/Register';
 import TasksPage    from './pages/TasksPage';
 import CalendarPage from './pages/CalendarPage';
 import Layout       from './components/Layout';
-
+import TimelinePage from './pages/TimelinePage';
 function Guard({ children }) {
   const { user, loading } = useAuth();
   if (loading) return (
@@ -32,6 +32,8 @@ export default function App() {
           <Route path="/" element={<Guard><Layout /></Guard>}>
             <Route index        element={<TasksPage />} />
             <Route path="calendar" element={<CalendarPage />} />
+            <Route path="timeline" element={<TimelinePage />} />
+
           </Route>
         </Routes>
       </BrowserRouter>
