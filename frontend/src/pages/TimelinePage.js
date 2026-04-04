@@ -121,8 +121,7 @@ export default function TimelinePage() {
 
       w.days.forEach(day => {
         const row = document.createElement('div');
-        row.style.cssText = `display:grid;grid-template-columns:100px 1fr 180px;border-top:0.5px solid #e2e8f0;${day.rest ? 'background:#f7fafc' : ''}`;
-        row.innerHTML = `
+row.style.cssText = `display:grid;grid-template-columns:100px 1fr 180px;border-top:0.5px solid #e2e8f0;background:${day.rest ? '#f1f5f9' : '#ffffff'}`;        row.innerHTML = `
           <div style="padding:8px 12px;font-size:12px;font-weight:500;color:#718096;border-right:0.5px solid #e2e8f0;display:flex;align-items:center;background:${day.rest?'#f7fafc':'#fafafa'}">${day.d}</div>
           <div style="padding:8px 12px;font-size:13px;color:${day.rest?'#a0aec0':'#2d3748'};display:flex;align-items:center;${day.rest?'font-style:italic':''}">${day.t}</div>
           <div style="padding:8px 12px;font-size:12px;color:#718096;border-left:0.5px solid #e2e8f0;display:flex;align-items:center;font-style:italic">${day.a}</div>`;
@@ -149,8 +148,7 @@ export default function TimelinePage() {
   }, []);
 
   return (
-    <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
-      <div style={{ marginBottom: '1.5rem' }}>
+       <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto', background: '#ffffff', minHeight: '100vh', color: '#1a202c' }}>      <div style={{ marginBottom: '1.5rem' }}>
         <h2 style={{ fontSize: 20, fontWeight: 600, color: '#1a202c' }}>Placement Prep Timeline</h2>
         <p style={{ fontSize: 13, color: '#718096', marginTop: 4 }}>~5 problems/day on coding topics + 30 min aptitude daily. Click a week to expand.</p>
       </div>
