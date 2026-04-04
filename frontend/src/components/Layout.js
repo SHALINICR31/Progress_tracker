@@ -51,6 +51,10 @@ export default function Layout() {
             <span className={s.navIcon}>📅</span>
             <span>Calendar</span>
           </NavLink>
+          <NavLink to="/timeline" className={({ isActive }) => `${s.navItem} ${isActive ? s.navActive : ''}`}>
+            <span className={s.navIcon}>🗓️</span>
+            <span>Prep Timeline</span>
+          </NavLink>
         </nav>
 
         <button className={s.logoutBtn} onClick={handleLogout}>
